@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import "./Form.css";
+
 const Form = () => {
 	const [peso, setPeso] = useState("");
 	const [altura, setAltura] = useState("");
@@ -19,17 +21,17 @@ const Form = () => {
 		setImc(imcCalculado.toFixed(2));
 
 		if (imcCalculado < 18.5) {
-			setClassificacao("Abaixo do peso");
+			setClassificacao(" 🥗💪 Abaixo do peso");
 		} else if (imcCalculado >= 18.5 && imcCalculado < 24.9) {
-			setClassificacao("Peso normal");
+			setClassificacao("😊👍 Peso normal");
 		} else if (imcCalculado >= 25 && imcCalculado < 29.9) {
-			setClassificacao("Sobrepeso");
+			setClassificacao("🍔🚶Sobrepeso");
 		} else if (imcCalculado >= 30 && imcCalculado < 34.9) {
-			setClassificacao("Obesidade Grau 1");
+			setClassificacao("🍕🏃Obesidade Grau 1");
 		} else if (imcCalculado >= 35 && imcCalculado < 39.9) {
-			setClassificacao("Obesidade Grau 2");
+			setClassificacao("🍟🚴Obesidade Grau 2");
 		} else {
-			setClassificacao("Obesidade Grau 3");
+			setClassificacao("🚨🏥Obesidade Grau 3");
 		}
 
 		setPeso("");
@@ -59,9 +61,13 @@ const Form = () => {
 					</button>
 				</form>
 				{imc && (
-					<div>
-						<p>Seu IMC: {imc}</p>
-						<p>Classificação: {classificacao}</p>
+					<div className="exibiResultado">
+						<p>
+							👨‍💻IMC: <span>{imc}</span>
+						</p>
+						<p>
+							🧾Classificação: <span>{classificacao}</span>
+						</p>
 					</div>
 				)}
 			</main>
